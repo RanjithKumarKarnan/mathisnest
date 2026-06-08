@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, Phone } from 'lucide-react'
 import { SITE, NAV_LINKS } from '../../data/site'
-import { Button } from '../ui/Button'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
 
 const SECTION_IDS = NAV_LINKS.map((link) => link.href.replace('#', ''))
