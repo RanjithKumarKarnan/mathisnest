@@ -39,7 +39,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-3 sm:px-6 md:py-4 lg:px-8 lg:py-4">
+      <div className="relative mx-auto max-w-7xl px-4 py-3 sm:px-6 md:py-4 lg:px-8 lg:py-">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           {/* Content */}
           <div>

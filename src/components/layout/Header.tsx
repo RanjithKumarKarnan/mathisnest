@@ -86,9 +86,6 @@ export function Header() {
             <Phone className="h-4 w-4" aria-hidden="true" />
             <span className="hidden xl:inline">{SITE.phone}</span>
           </a>
-          <Button href="#contact" size="sm">
-            Book a Room
-          </Button>
         </div>
 
         <button
@@ -130,9 +127,6 @@ export function Header() {
               <Phone className="h-4 w-4" aria-hidden="true" />
               {SITE.phone}
             </a>
-            <Button href="#contact" className="w-full" onClick={closeMenu}>
-              Book a Room
-            </Button>
           </div>
         </div>
       </nav>

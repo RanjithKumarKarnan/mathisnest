@@ -3,10 +3,10 @@ export const SITE = {
   shortName: "Mathi's Nest",
   tagline: 'Safe & Comfortable Ladies Hostel in Trichy',
   url: 'https://www.mathisnestladieshostel.in',
-  phone: '+91 98765 43210',
-  phoneHref: 'tel:+919876543210',
-  email: 'contact@mathisnestladieshostel.in',
-  emailHref: 'mailto:contact@mathisnestladieshostel.in',
+  phone: '+91 74013 10001',
+  phoneHref: 'tel:+917401310001',
+  email: 'yourinfo@mathisnest.com',
+  emailHref: 'mailto:yourinfo@mathisnest.com',
   address: {
     street: 'PRS Complex, Race Course Road, Lourdh Swamy Colony',
     city: 'Trichy',
@@ -29,7 +29,7 @@ export const SITE = {
   social: {
     facebook: 'https://facebook.com/mathisnestladieshostel',
     instagram: 'https://instagram.com/mathisnestladieshostel',
-    whatsapp: 'https://wa.me/919876543210',
+    whatsapp: 'https://wa.me/917401310001',
   },
   copyright: "© 2026 Mathi's Nest Ladies Hostel Trichy. All Rights Reserved.",
 } as const
