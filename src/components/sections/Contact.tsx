@@ -1,108 +1,121 @@
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
-import { SITE } from '../../data/site'
-import { SectionHeading } from '../ui/SectionHeading'
-import { Button } from '../ui/Button'
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { SITE } from "../../data/site";
+import { SectionHeading } from "../ui/SectionHeading";
+import { Button } from "../ui/Button";
+
+const contactItems = [
+  {
+    icon: Phone,
+    label: "Phone",
+    value: SITE.phone,
+    href: SITE.phoneHref,
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: SITE.email,
+    href: SITE.emailHref,
+  },
+  {
+    icon: MapPin,
+    label: "Address",
+    value: SITE.address.full,
+  },
+  {
+    icon: Clock,
+    label: "Hours",
+    value: SITE.hours.weekdays,
+    description: SITE.hours.description,
+  },
+];
 
 export function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 md:py-28"
       aria-labelledby="contact-heading"
+      className="py-16 md:py-24"
     >
-      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           id="contact-heading"
           title="Contact & Visit Us"
           subtitle="Schedule a visit or get in touch to book your room at the best ladies hostel in Trichy."
         />
 
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div className="space-y-6">
-            <div className="rounded-2xl border border-border bg-surface p-6 md:p-8">
-              <h3 className="font-display text-xl font-semibold text-text">
-                Get in Touch
-              </h3>
+        <div className="mx-auto max-w-2xl">
+          <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6 md:p-8 shadow-sm">
+            <h3 className="font-display text-xl font-semibold text-text">
+              Get in Touch
+            </h3>
 
-              <ul className="mt-6 space-y-5">
-                <li>
-                  <a
-                    href={SITE.phoneHref}
-                    className="flex items-start gap-4 rounded-lg p-2 transition-colors hover:bg-background"
-                  >
-                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                      <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
-                    </span>
-                    <div>
-                      <p className="text-sm font-medium text-text-muted">Phone</p>
-                      <p className="font-semibold text-text">{SITE.phone}</p>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={SITE.emailHref}
-                    className="flex items-start gap-4 rounded-lg p-2 transition-colors hover:bg-background"
-                  >
-                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                      <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
-                    </span>
-                    <div>
-                      <p className="text-sm font-medium text-text-muted">Email</p>
-                      <p className="font-semibold text-text">{SITE.email}</p>
-                    </div>
-                  </a>
-                </li>
-                <li className="flex items-start gap-4 p-2">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                    <MapPin className="h-5 w-5 text-primary" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-text-muted">Address</p>
-                    <address className="not-italic font-semibold text-text leading-relaxed">
-                      {SITE.address.full}
-                    </address>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4 p-2">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                    <Clock className="h-5 w-5 text-primary" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-text-muted">Hours</p>
-                    <p className="font-semibold text-text">{SITE.hours.weekdays}</p>
-                    <p className="text-sm text-text-muted">{SITE.hours.description}</p>
-                  </div>
-                </li>
-              </ul>
+            <div className="mt-6 space-y-4">
+              {contactItems.map((item) => {
+                const Icon = item.icon;
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button href={SITE.phoneHref} className="flex-1">
-                  <Phone className="h-4 w-4" aria-hidden="true" />
-                  Call Now
-                </Button>
-                <Button href={SITE.emailHref} variant="outline" className="flex-1">
-                  Schedule a Visit
-                </Button>
-              </div>
+                const content = (
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                      <Icon
+                        className="h-5 w-5 text-primary"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm text-text-muted">
+                        {item.label}
+                      </p>
+
+                      <p className="font-medium text-text break-words">
+                        {item.value}
+                      </p>
+
+                      {item.description && (
+                        <p className="mt-1 text-sm text-text-muted">
+                          {item.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                );
+
+                return item.href ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="block rounded-xl p-3 transition-colors hover:bg-background"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div
+                    key={item.label}
+                    className="rounded-xl p-3"
+                  >
+                    {content}
+                  </div>
+                );
+              })}
             </div>
-          </div>
 
-          <div className="overflow-hidden rounded-2xl border border-border shadow-lg">
-            <iframe
-              title="Mathi's Nest Ladies Hostel Trichy location on Google Maps"
-              src={SITE.mapsEmbedUrl}
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-full min-h-[400px] w-full"
-            />
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <Button href={SITE.phoneHref} className="w-full">
+                <Phone className="h-4 w-4" />
+                Call Now
+              </Button>
+
+              <Button
+                href={SITE.emailHref}
+                variant="outline"
+                className="w-full"
+              >
+                Schedule a Visit
+              </Button>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
