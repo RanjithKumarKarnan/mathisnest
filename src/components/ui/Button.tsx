@@ -5,17 +5,17 @@ type Size = 'sm' | 'md' | 'lg'
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    'bg-primary text-white hover:bg-primary-dark shadow-md shadow-primary/20',
+    'bg-primary text-white hover:bg-primary-dark shadow-soft hover:shadow-soft-lg',
   secondary:
-    'bg-secondary text-white hover:bg-primary shadow-md shadow-secondary/20',
+    'bg-text text-white hover:bg-black/85 shadow-soft',
   outline:
-    'border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white',
+    'border border-border-strong bg-surface text-text hover:border-primary hover:text-primary',
 }
 
 const sizeStyles: Record<Size, string> = {
   sm: 'px-4 py-2 text-sm',
   md: 'px-6 py-3 text-base',
-  lg: 'px-8 py-4 text-lg',
+  lg: 'px-7 py-3.5 text-base',
 }
 
 type BaseProps = {
@@ -38,7 +38,7 @@ export function Button({
   children,
   ...props
 }: ButtonProps | LinkProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${variantStyles[variant]} ${sizeStyles[size]} ${className}`
+  const classes = `inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${variantStyles[variant]} ${sizeStyles[size]} ${className}`
 
   if (href) {
     return (

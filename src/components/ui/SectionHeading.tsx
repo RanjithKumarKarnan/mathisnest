@@ -1,5 +1,6 @@
 interface SectionHeadingProps {
   id?: string
+  eyebrow?: string
   title: string
   subtitle?: string
   align?: 'left' | 'center'
@@ -8,28 +9,33 @@ interface SectionHeadingProps {
 
 export function SectionHeading({
   id,
+  eyebrow,
   title,
   subtitle,
   align = 'center',
   className = '',
 }: SectionHeadingProps) {
-  const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left'
+  const isCenter = align === 'center'
+  const alignClass = isCenter ? 'text-center mx-auto items-center' : 'text-left items-start'
 
   return (
-    <header className={`mb-12 max-w-3xl ${alignClass} ${className}`}>
+    <header className={`mb-12 flex max-w-3xl flex-col ${alignClass} ${className}`}>
+      {eyebrow && (
+        <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-soft">
+          {eyebrow}
+        </span>
+      )}
       <h2
         id={id}
-        className="font-display text-3xl md:text-4xl font-bold text-text text-balance"
+        className="font-display text-3xl font-bold text-text text-balance md:text-4xl"
       >
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-lg text-text-muted leading-relaxed text-balance">{subtitle}</p>
+        <p className="mt-4 text-base leading-relaxed text-text-muted text-balance md:text-lg">
+          {subtitle}
+        </p>
       )}
-      <div
-        className={`mt-4 h-1 w-16 rounded-full bg-primary ${align === 'center' ? 'mx-auto' : ''}`}
-        aria-hidden="true"
-      />
     </header>
   )
 }

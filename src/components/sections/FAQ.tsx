@@ -13,12 +13,13 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="bg-surface py-20 md:py-28"
+      className="bg-background py-20 md:py-28"
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8">
         <SectionHeading
           id="faq-heading"
+          eyebrow="FAQ"
           title="Frequently Asked Questions"
           subtitle="Everything you need to know about staying at Mathi's Nest Ladies Hostel Trichy."
         />
@@ -32,7 +33,9 @@ export function FAQ() {
             return (
               <article
                 key={item.question}
-                className="overflow-hidden rounded-xl border border-border bg-background"
+                className={`overflow-hidden rounded-xl border bg-surface transition-colors ${
+                  isOpen ? 'border-primary/40 shadow-soft' : 'border-border'
+                }`}
               >
                 <h3>
                   <button
@@ -57,7 +60,7 @@ export function FAQ() {
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!isOpen}
-                  className="px-5 pb-4"
+                  className="px-5 pb-5"
                 >
                   <p className="text-sm leading-relaxed text-text-muted">{item.answer}</p>
                 </div>

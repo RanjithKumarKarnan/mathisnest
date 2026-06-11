@@ -28,18 +28,20 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-surface/95 shadow-md backdrop-blur-md' : 'bg-surface/80 backdrop-blur-sm'
+        scrolled
+          ? 'border-b border-border bg-surface/90 shadow-soft backdrop-blur-md'
+          : 'border-b border-transparent bg-surface/70 backdrop-blur-sm'
       }`}
       role="banner"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6 lg:px-8">
         <a
           href="#home"
-          className="flex items-center gap-2 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className="flex items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           aria-label={`${SITE.shortName} - Home`}
         >
           <span
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-white"
+            className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-lg font-bold text-white shadow-soft"
             aria-hidden="true"
           >
             M
@@ -48,7 +50,9 @@ export function Header() {
             <span className="block font-display text-lg font-bold text-text">
               {SITE.shortName}
             </span>
-            <span className="block text-xs text-text-muted">Ladies Hostel Trichy</span>
+            <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-text-muted">
+              Ladies Hostel Trichy
+            </span>
           </div>
         </a>
 
@@ -63,10 +67,10 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
                   isActive
-                    ? 'text-primary'
-                    : 'text-text-muted hover:text-primary'
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-text-muted hover:bg-background hover:text-text'
                 }`}
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -76,14 +80,20 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <a
             href={SITE.phoneHref}
-            className="flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-primary"
+            className="flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-text-muted transition-colors hover:text-primary"
             aria-label={`Call us at ${SITE.phone}`}
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             <span className="hidden xl:inline">{SITE.phone}</span>
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all duration-200 hover:bg-primary-dark hover:shadow-soft-lg active:scale-[0.98]"
+          >
+            Book a Room
           </a>
         </div>
 
@@ -104,7 +114,7 @@ export function Header() {
         className={`lg:hidden ${menuOpen ? 'block' : 'hidden'}`}
         aria-label="Mobile navigation"
       >
-        <div className="border-t border-border bg-surface px-4 py-4 shadow-lg">
+        <div className="border-t border-border bg-surface px-4 py-4 shadow-soft-lg">
           <ul className="space-y-1">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
@@ -125,6 +135,13 @@ export function Header() {
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
               {SITE.phone}
+            </a>
+            <a
+              href="#contact"
+              onClick={closeMenu}
+              className="block rounded-xl bg-primary px-4 py-3 text-center text-sm font-semibold text-white shadow-soft"
+            >
+              Book a Room
             </a>
           </div>
         </div>
