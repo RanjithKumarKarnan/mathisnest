@@ -1,153 +1,178 @@
+import { useEffect, useState } from "react";
 import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   Phone,
-  Shield,
-  Camera,
-  Wifi,
-  UtensilsCrossed,
-  Shirt,
-  MapPin,
-  Star,
 } from "lucide-react";
-import { SITE } from "../../data/site";
-import { HERO_TRUST_ITEMS } from "../../data/content";
-import { Button } from "../ui/Button";
-
-const trustIcons = [Shield, Camera, Wifi, UtensilsCrossed, Shirt, MapPin];
-
-const stats = [
-  { value: "39+", label: "Resident Reviews" },
-  { value: "4.5★", label: "Average Rating" },
-  { value: "24/7", label: "Security & Support" },
-];
+import { SITE, HERO_SLIDES, HERO_FACILITIES } from "../../data/site";
 
 export function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [current]);
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  };
+
   return (
-    <section
-      id="home"
-      aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-background pt-28 md:pt-32"
-    >
-      {/* Soft ambient background */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden="true"
-        style={{
-          backgroundImage: `
-            radial-gradient(60rem 40rem at 85% -10%, rgba(232, 98, 14, 0.10), transparent 60%),
-            radial-gradient(50rem 40rem at -10% 20%, rgba(245, 158, 11, 0.08), transparent 55%)
-          `,
-        }}
-      />
+    <section id="home" className="bg-background pt-[80px] md:pt-[100px]">
+      {/* Inline styles for seamless mobile marquee animation */}
+      <style>{`
+        @keyframes marquee-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-mobile {
+          display: flex;
+          width: max-content;
+          animation: marquee-scroll 20s linear infinite;
+        }
+      `}</style>
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-20 sm:px-6 md:pb-28 lg:px-8">
-        <div className="grid items-center gap-14 lg:grid-cols-2">
-          {/* Content */}
-          <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-medium text-primary shadow-soft">
-              <Star className="h-4 w-4 fill-primary text-primary" aria-hidden="true" />
-              Trusted Ladies Hostel in Trichy
-            </p>
+      <div className="w-full">
+        {/* Carousel Container */}
+        <div className="relative overflow-hidden">
+          <img
+            src={HERO_SLIDES[current].image}
+            alt="Ladies Hostel in Trichy"
+            className="h-[74vh] w-full object-cover transition-all duration-700 lg:h-[72vh]"
+          />
 
-            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
-              Race Course Road · Khaja Nagar · Trichy
-            </p>
+          {/* Dark Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-black/45" />
 
-            <h1
-              id="hero-heading"
-              className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.08] text-text sm:text-5xl lg:text-6xl"
-            >
-              A Safe, Comfortable Home for Women in Trichy
-            </h1>
-
-            <p className="mt-6 max-w-2xl text-base leading-8 text-text-muted sm:text-lg">
-              Mathi's Nest offers well-maintained rooms, homely food, high-speed
-              WiFi, 24/7 CCTV security, and a peaceful environment designed for
-              students, nurses, and working women.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href="#contact" size="lg" className="sm:min-w-[180px]">
-                Book a Room
-              </Button>
-
-              <Button
-                href={SITE.phoneHref}
-                variant="outline"
-                size="lg"
-                className="sm:min-w-[180px]"
-              >
-                <Phone className="h-5 w-5" aria-hidden="true" />
-                Call Now
-              </Button>
-            </div>
-
-            {/* Statistics */}
-            <dl className="mt-12 grid max-w-md grid-cols-3 gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd>
-                    <span className="block font-display text-3xl font-bold text-text">
-                      {stat.value}
-                    </span>
-                    <span className="mt-1 block text-xs leading-snug text-text-muted">
-                      {stat.label}
-                    </span>
-                  </dd>
+          {/* Slide Content */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+              <div className="max-w-2xl">
+                <div className="mb-2 flex items-center gap-3">
+                  <div className="h-px w-10 bg-primary sm:w-14" />
+                  <span className="text-[9px] font-medium italic uppercase tracking-[0.28em] text-white/90 sm:text-[11px]">
+                    Trusted Ladies Hostel • Trichy
+                  </span>
                 </div>
-              ))}
-            </dl>
+
+                <h1 className="max-w-3xl font-display italic text-[32px] font-semibold leading-[1.08] tracking-tight text-white transition-opacity duration-500 sm:text-[48px] md:text-[60px] lg:text-[74px]">
+                  {HERO_SLIDES[current].title}
+                </h1>
+
+                <p className="mt-4 max-w-xl text-[13px] font-normal leading-6 text-white/80 transition-opacity duration-500 sm:text-[15px] sm:leading-7 lg:text-[17px]">
+                  {HERO_SLIDES[current].subtitle}
+                </p>
+
+                <div className="mt-4 flex flex-wrap items-center gap-3 sm:gap-5">
+                  <a
+                    href="#contact"
+                    className="group flex h-11 items-center gap-2.5 bg-primary px-5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white transition-all duration-300 hover:bg-primary-dark sm:h-13 sm:px-8"
+                  >
+                    Book a Room
+                    <ArrowRight
+                      size={15}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </a>
+
+                  <a
+                    href={SITE.phoneHref}
+                    className="flex h-11 items-center gap-2 border border-white/25 px-5 text-[10px] font-medium uppercase tracking-[0.22em] text-white transition-all duration-300 hover:bg-white hover:text-black sm:h-13 sm:px-8"
+                  >
+                    <Phone size={14} />
+                    Call Now
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Hero Image */}
-          <div className="relative">
-            <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-soft-lg">
-              <img
-                src="/images/hero-mathis-nest-ladies-hostel-trichy.svg"
-                alt="Mathi's Nest Ladies Hostel Trichy with safe accommodation and modern facilities for women"
-                width={640}
-                height={480}
-                fetchPriority="high"
-                className="aspect-[4/3] w-full object-cover"
+          {/* Bottom Dots Indicator */}
+          <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 sm:bottom-8">
+            {HERO_SLIDES.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrent(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className={`rounded-full transition-all duration-300 ${current === index
+                  ? "h-[5px] w-8 bg-primary"
+                  : "h-2.5 w-2.5 bg-white/40 hover:bg-white/70"
+                  }`}
               />
-            </div>
+            ))}
+          </div>
 
-            {/* Floating Trust Card */}
-            <div
-              className="absolute -bottom-5 left-5 rounded-2xl border border-border bg-surface px-5 py-4 shadow-soft-lg"
-              role="status"
-              aria-label="Rated 4.5 out of 5 by residents"
+          {/* Left Arrow */}
+          <div className="absolute inset-y-0 left-3 hidden sm:flex items-center sm:left-6">
+            <button
+              onClick={prevSlide}
+              aria-label="Previous slide"
+              className="flex h-10 w-10 items-center justify-center border border-white/20 bg-black/20 text-white backdrop-blur-sm transition-all duration-300 hover:bg-primary hover:text-white sm:h-12 sm:w-12"
             >
-              <p className="text-base font-bold tracking-tight text-primary" aria-hidden="true">
-                ★★★★★
-              </p>
-              <p className="mt-1 text-sm font-semibold text-text">
-                Rated 4.5 / 5
-              </p>
-              <p className="text-xs text-text-muted">by 39+ residents</p>
-            </div>
+              <ChevronLeft size={18} />
+            </button>
+          </div>
+
+          {/* Right Arrow */}
+          <div className="absolute inset-y-0 right-3 hidden sm:flex items-center sm:right-6">
+            <button
+              onClick={nextSlide}
+              aria-label="Next slide"
+              className="flex h-10 w-10 items-center justify-center border border-white/20 bg-black/20 text-white backdrop-blur-sm transition-all duration-300 hover:bg-primary hover:text-white sm:h-12 sm:w-12"
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
         </div>
 
-        {/* Trust Features */}
-        <ul
-          className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6"
-          aria-label="Key trust indicators"
-        >
-          {HERO_TRUST_ITEMS.map((item, index) => {
-            const Icon = trustIcons[index];
+        {/* --- Facilities Bottom Bar (Desktop & Tablet) --- */}
+        <div className="hidden border-y border-border/50 bg-surface md:grid md:grid-cols-3 lg:grid-cols-6">
+          {HERO_FACILITIES.map((item) => {
+            const Icon = item.icon;
             return (
-              <li
-                key={item}
-                className="flex items-center gap-2 rounded-xl border border-border bg-surface px-3.5 py-3 text-sm font-medium text-text shadow-soft"
+              <div
+                key={item.label}
+                className="flex h-24 flex-col items-center justify-center gap-2 border-r border-border/50 px-4 last:border-r-0 lg:last:border-r"
               >
-                <Icon className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                <span>{item}</span>
-              </li>
+                <Icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
+                <p className="text-center text-[10px] font-medium uppercase leading-[1.4] tracking-[0.2em] text-text-muted">
+                  {item.label}
+                </p>
+              </div>
             );
           })}
-        </ul>
+        </div>
+
+        {/* --- Facilities Bottom Bar (Mobile Marquee) --- */}
+        <div className="flex overflow-hidden border-y border-border/50 bg-surface md:hidden">
+          {/* We duplicate the array to create a seamless infinite loop */}
+          <div className="animate-marquee-mobile hover:[animation-play-state:paused]">
+            {[...HERO_FACILITIES, ...HERO_FACILITIES].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={`${item.label}-${index}`}
+                  className="flex h-20 w-[150px] shrink-0 flex-col items-center justify-center gap-2 border-r border-border/50 px-2"
+                >
+                  <Icon className="h-4 w-4 text-primary" strokeWidth={1.5} />
+                  <p className="text-center text-[9px] font-medium uppercase leading-[1.4] tracking-[0.2em] text-text-muted">
+                    {item.label}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
       </div>
     </section>
   );
