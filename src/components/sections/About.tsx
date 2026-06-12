@@ -37,7 +37,7 @@ export function About() {
                 <ShieldCheck className="h-6 w-6" strokeWidth={1.5} />
               </div>
               <div>
-                <p className="font-display italic text-2xl font-bold tracking-tight text-text">
+                <p className="font-heading text-2xl font-bold tracking-tight text-text">
                   Safe & Secure
                 </p>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-muted">
@@ -61,7 +61,7 @@ export function About() {
             </div>
 
             {/* Main Title */}
-            <h3 className="mb-4 font-display italic text-4xl font-bold leading-[1.15] tracking-tight text-text md:text-5xl lg:text-6xl">
+            <h3 className="mb-4 text-4xl font-bold leading-[1.15] tracking-tight text-text md:text-5xl lg:text-6xl">
               {ABOUT_CONTENT.title}
             </h3>
 

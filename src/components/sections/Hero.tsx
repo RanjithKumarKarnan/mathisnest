@@ -59,12 +59,12 @@ export function Hero() {
               <div className="max-w-2xl">
                 <div className="mb-2 flex items-center gap-3">
                   <div className="h-px w-10 bg-primary sm:w-14" />
-                  <span className="text-[9px] font-medium italic uppercase tracking-[0.28em] text-white/90 sm:text-[11px]">
+                  <span className="text-[9px] font-medium uppercase tracking-[0.28em] text-white/90 sm:text-[11px]">
                     Trusted Ladies Hostel • Trichy
                   </span>
                 </div>
 
-                <h1 className="max-w-3xl font-display italic text-[32px] font-semibold leading-[1.08] tracking-tight text-white transition-opacity duration-500 sm:text-[48px] md:text-[60px] lg:text-[74px]">
+                <h1 className="max-w-3xl text-[32px] font-semibold leading-[1.08] tracking-tight text-white transition-opacity duration-500 sm:text-[48px] md:text-[60px] lg:text-[74px]">
                   {HERO_SLIDES[current].title}
                 </h1>
 

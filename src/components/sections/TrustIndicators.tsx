@@ -85,7 +85,7 @@ export function TrustIndicators() {
                 />
 
                 {/* Clean, solid high-contrast number */}
-                <h3 className="mb-3 font-display text-4xl font-bold tracking-tight text-text md:text-5xl lg:text-6xl">
+                <h3 className="mb-3 text-4xl font-bold tracking-tight text-text md:text-5xl lg:text-6xl">
                   <AnimatedCounter value={item.value} />
                 </h3>
 
