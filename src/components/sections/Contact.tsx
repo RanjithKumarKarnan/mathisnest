@@ -102,7 +102,7 @@ export function Contact() {
           <div className="relative min-h-[400px] lg:col-span-3">
             {/* Dummy Image Placeholder for Map - Change path later */}
             <img
-              src="/images/demo.png"
+              src="/images/hero/2.png"
               alt="Map location of Mathi's Nest"
               className="absolute inset-0 h-full w-full object-cover grayscale transition-transform duration-1000 hover:scale-105 hover:grayscale-0"
             />
