@@ -33,10 +33,11 @@ export const HERO_TRUST_ITEMS = [
 export const ABOUT_CONTENT = {
   title: "About Mathi's Nest Ladies Hostel",
   paragraphs: [
-    "At Mathi's Nest Ladies Hostel, we don't just offer accommodation — we create a home where college students, working women, nurses, IT professionals, and government exam aspirants can thrive safely in Tiruchirappalli. Situated on Race Course Road in Lourdh Swamy Colony, Khaja Nagar, our hostel has become the go-to choice for women seeking a secure, comfortable, and affordable living space in Trichy.",
-    "When you're looking for a ladies hostel near me in Trichy, your safety shouldn't be an afterthought. That's why Mathi's Nest puts security first. Our 24/7 security team, comprehensive CCTV surveillance, and dedicated management team work tirelessly to ensure every resident feels protected and cared for. We're not just another girls hostel in Trichy — we're a community built on trust, where your well-being is our top priority.",
-    "Living at Mathi's Nest means cutting down commute time and expanding your opportunities. Our Race Course Road location puts you minutes away from Trichy's top colleges, hospitals, IT parks, and government offices. As a specialised working women's hostel in Trichy, we understand what professional women need: a peaceful sanctuary where you can rest, recharge, and feel secure after long workdays.",
-    "We believe every woman should have access to safe, comfortable accommodation. Our transparent, affordable pricing ensures you get premium facilities without breaking your budget — no hidden charges, no compromises on safety, just honest value. With a 4.5-star rating from 39+ satisfied residents, Mathi's Nest has become Trichy's most trusted ladies hostel. Join hundreds of women who've found their perfect home with us.",
+    "At Mathi's Nest Ladies Hostel, we don't just offer accommodation. We create a home where college students, working women, nurses, IT professionals, and government exam aspirants can thrive safely in Tiruchirappalli. Situated on Race Course Road in Lourdh Swamy Colony, Khaja Nagar, our hostel has become the go-to choice for women seeking a secure, comfortable, and affordable living space in Trichy.",
+    "When you're looking for 'ladies hostel near me' in Trichy, your safety shouldn't be an afterthought. That's why Mathi's Nest puts security first. Our 24/7 security team,comprehensive CCTV surveillance, and dedicated management team work tirelessly to ensure every resident feels protected and cared for. We're not just another girls hostel in Trichy. We're a community built on trust, where your well-being is our top priority.",
+    "Living at Mathi's Nest means cutting down commute time and expanding your opportunities. Our Race Course Road location puts you minutes away from Trichy's top colleges, hospitals, IT parks, and government offices. Whether you're heading to class at 8 AM or finishing a shift at 6 PM, our prime spot makes your daily journey smooth and convenient.",
+    "As a specialized working women's hostel in Trichy, we understand what professional women need. After long workdays, you deserve a peaceful sanctuary where you can rest, recharge, and feel secure. Our quiet environment, flexible timings, and respectful community make Mathi's Nest the ideal home for women balancing careers and personal growth. We believe every woman should have access to safe, comfortable accommodation. Our transparent, affordable pricing ensures you get premium facilities without breaking your budget. No hidden charges, no compromises on safety, just honest value for your money.",
+    "With a 4.5-star rating from 39+ satisfied residents, Mathi's Nest has become Trichy's most trusted ladies hostel. Women who choose us value safety, cleanliness, and a warm atmosphere and they're not alone. Join hundreds of residents who've found their perfect home with us."
   ],
 } as const
 
@@ -51,37 +52,37 @@ export const WHY_CHOOSE_US: WhyChooseCard[] = [
     icon: MapPin,
     title: 'Prime Location',
     description:
-      "Located on Race Course Road in Lourdh Swamy Colony, Mathi's Nest puts you at the heart of Trichy. Whether you're heading to college, a hospital shift, an IT office, or catching transport, everything is within easy reach — the perfect ladies hostel in Trichy that saves you time and commute stress.",
+      "Located on Race Course Road in Lourdh Swamy Colony, Mathi's Nest puts you at the heart of Trichy. Whether you're heading to college, a hospital shift, an IT office, or catching transport, everything is within easy reach. For students and working professionals, this is the perfect ladies hostel in Trichy that saves you time and commute stress.",
   },
   {
     icon: Shield,
     title: 'Safe for Women',
     description:
-      "Your safety isn't just important — it's everything to us. We protect you with 24/7 security staff, full CCTV coverage, locked entry systems, and a women-only environment. Choosing Mathi's Nest means choosing a trusted, safe girls hostel in Trichy where peace of mind comes guaranteed.",
+      "Your safety isn't just important, it's everything to us. We protect you with 24/7 security staff, full CCTV coverage, locked entry systems, and a women-only environment. When you choose Mathi's Nest, you're choosing a trusted, safe girls hostel in Trichy where peace of mind comes guaranteed.",
   },
   {
     icon: IndianRupee,
     title: 'Affordable Pricing',
     description:
-      "Quality living shouldn't cost a fortune. We offer premium facilities at honest, competitive prices — no hidden fees, no surprises. Just transparent, affordable rates that make us one of the most budget-friendly ladies hostels in Trichy, without sacrificing comfort or safety.",
+      "Quality living shouldn't cost a fortune. At Mathi's Nest, we offer premium facilities at honest, competitive prices. No hidden fees, no surprises, just transparent, affordable rates that make us one of the most budget-friendly ladies hostels in Trichy, without sacrificing comfort or safety.",
   },
   {
     icon: Sparkles,
     title: 'Modern Amenities',
     description:
-      "We've equipped every corner of Mathi's Nest to support your success: fast WiFi for online classes and work, uninterrupted power backup, pure RO water, convenient laundry service, and a quiet study zone — keeping your daily life smooth and stress-free.",
+      "We've equipped every corner of Mathi's Nest to support your success. Enjoy fast WiFi for online classes and work, uninterrupted power backup, pure RO water, convenient laundry service, and a quiet study zone. Whether you're a student or professional, our amenities keep your daily life smooth and stress-free.",
   },
   {
     icon: HeartHandshake,
     title: 'Friendly Management',
     description:
-      "Meet a management team that actually cares. We're approachable, quick to respond, and always ready to help — whether you need room changes, have questions, or just want someone to listen. At Mathi's Nest, every resident feels valued, heard, and genuinely supported.",
+      "Meet a management team that actually cares. We're approachable, quick to respond, and always ready to help whether you need room changes, have questions, or just want someone to listen. At Mathi's Nest, every resident matters. You'll feel valued, heard, and genuinely supported every day.",
   },
   {
     icon: Leaf,
     title: 'Clean Environment',
     description:
-      "Cleanliness here is non-negotiable. Our team handles daily housekeeping, weekly deep cleaning, and keeps all common areas spotless and fresh. A hygienic, welcoming home isn't occasional — it's the standard we follow every single day at the cleanest ladies hostel in Trichy.",
+      "Cleanliness here is non-negotiable. Our team handles daily housekeeping, weekly deep cleaning, and keeps all common areas spotless and fresh. A hygienic, welcoming home isn't something we do occasionally; it's the standard we follow every single day at Mathi's Nest, the cleanest ladies hostel in Trichy.",
   },
 ]
 
@@ -89,7 +90,6 @@ export interface FacilityItem {
   icon: LucideIcon
   title: string
   quote: string
-  quoteSource: string
   description: string
 }
 
@@ -98,81 +98,71 @@ export const FACILITIES: FacilityItem[] = [
     icon: Shield,
     title: '24/7 Security',
     quote: 'The Night Is Dark, But the Hostel Is Safe.',
-    quoteSource: 'Game of Thrones',
     description:
-      'Round-the-clock security personnel stand guard, ensuring a protected environment for every resident. Our dedicated team works day and night, giving you and your family complete peace of mind at all times.',
+      "Round-the-clock security personnel stand guard at Mathi's Nest, ensuring a protected environment for every resident. Our dedicated security team works day and night, giving you and your family complete peace of mind at all times. No matter what hour it is, safety is always on duty.",
   },
   {
     icon: Camera,
     title: 'CCTV Surveillance',
     quote: 'Watchful Eyes, Always on Guard.',
-    quoteSource: 'Stranger Things',
     description:
-      'Strategic CCTV cameras cover all common areas, entry points, and walkways throughout our secure girls hostel in Trichy — creating a comprehensive safety system that monitors and protects 24/7.',
+      "Strategic CCTV cameras cover all common areas, entry points, and walkways throughout our secure girls hostel in Trichy. This extra layer of electronic surveillance complements our human security team, creating a comprehensive safety system that monitors and protects 24/7. You're always watched over, always cared for.",
   },
   {
     icon: Wifi,
     title: 'Free WiFi',
     quote: 'Stay Connected, Stay in the Loop.',
-    quoteSource: 'Friends',
     description:
-      'High-speed internet connectivity is available throughout the hostel, supporting your online classes, remote work, government exam preparation, and video calls with family — without interruption.',
+       "High-speed internet connectivity is available throughout Mathi's Nest, supporting your online classes, remote work, government exam preparation, and video calls with family. Whether you're attending virtual lectures, submitting work assignments, or catching up with loved ones, our reliable WiFi keeps you connected without interruption.",
   },
   {
     icon: Shirt,
     title: 'Laundry Service',
     quote: 'No Dirty Clothes, No Drama.',
-    quoteSource: 'The Office',
     description:
-      'Convenient laundry facilities take the chore off your plate. Save precious time and energy on daily washing so you can focus on what matters — your studies, career growth, and exam prep.',
+      "Convenient laundry facilities at Mathi's Nest take the chore off your plate. Save precious time and energy on daily washing so you can focus on what matters your studies, career growth, and exam prep. Leave the laundry stress behind and enjoy a hassle-free living experience.",
   },
   {
     icon: UtensilsCrossed,
     title: 'Homely Food',
     quote: 'Feels Like Home, Tastes Like Home.',
-    quoteSource: 'Gilmore Girls',
     description:
-      'Nutritious, home-style meals prepared daily with fresh, quality ingredients bring the warmth of home to your plate — delivering the comfort of home-cooked food every single day.',
+      'Nutritious, home-style meals prepared daily with fresh, quality ingredients bring the warmth of home to your plate. Our carefully crafted menu provides balanced nutrition for students and working professionals, delivering the comfort of home-cooked food every single day. Eat well, feel good, thrive here.',
   },
   {
     icon: SprayCan,
     title: 'Housekeeping',
     quote: 'A Clean Room, A Clear Mind.',
-    quoteSource: 'The Crown',
     description:
-      'Professional daily cleaning of rooms and common areas keeps Mathi’s Nest spotless and hygienic. Our dedicated team ensures every corner stays fresh, creating a peaceful space where your mind can focus.',
+      "Professional daily cleaning of rooms and common areas maintains Mathi's Nest as a spotless, hygienic living environment. Our dedicated housekeeping team ensures every corner stays fresh and sanitary, creating a peaceful space where your mind can focus on success. Clean surroundings, clear thinking, better results.",
   },
   {
     icon: Zap,
     title: 'Power Backup',
     quote: 'Even When the Lights Go Out, Life Goes On.',
-    quoteSource: 'The Walking Dead',
     description:
-      'Uninterrupted power supply through reliable backup generators ensures your study sessions, work calls, and daily routines never face disruptions. When the main power fails, our backup kicks in instantly.',
+      "Uninterrupted power supply through reliable backup generators ensures your study sessions, work calls, and daily routines never face disruptions. When the main power fails, our backup system kicks in instantly, keeping lights on, fans running, and WiFi working. Your productivity stays protected, 24/7.",
   },
   {
     icon: Droplets,
     title: 'RO Drinking Water',
     quote: 'Pure, Fresh, and Always Ready.',
-    quoteSource: 'House',
     description:
-      'Clean, purified RO water is available throughout the premises, promoting health and well-being for every resident. Our advanced filtration ensures every drop is safe, fresh, and refreshingly pure.',
+      "Clean, purified RO water is available throughout Mathi's Nest premises, promoting health and well-being for every resident. Our advanced filtration system ensures every drop is safe, fresh, and refreshingly pure. Hydration without concerns pure water, pure health, peace of mind.",
   },
   {
     icon: BookOpen,
     title: 'Study Area',
     quote: 'Where Focus Finds Its Home.',
-    quoteSource: 'Suits',
     description:
-      'A quiet, well-lit dedicated study zone provides the perfect atmosphere for focused exam preparation, academic work, and professional development — helping students and aspirants achieve academic excellence.',
+      "A quiet, well-lit dedicated study zone provides the perfect atmosphere for focused exam preparation, academic work, and professional development.Designed for concentration and peace, our study area helps government exam aspirants, college students, and professionals achieve academic excellence. Here, focus meets opportunity.",
   },
   {
     icon: Car,
     title: 'Parking',
     quote: 'Park Easy, Live Easy.',
-    quoteSource: 'Fast & Furious',
     description:
-      'Secure parking space is available for residents with two-wheelers, adding convenience for working professionals and students who commute daily. Your vehicle stays protected in our designated parking area.',
+      "Secure parking space is available for residents with two-wheelers, adding convenience for working professionals and students who commute daily. Your vehicle stays protected in our designated parking area, giving you easy access whenever you need it. Safe parking, stress-free commutes, smooth living.",
   },
 ]
 
