@@ -27,7 +27,7 @@ if (strlen($clean_phone) < 10) {
     exit;
 }
 
-$to = "ranjithram878@gmail.com";
+$to = "yourinfo@mathisnestladieshostel.com";
 $subject = "New Hostel Enquiry: $name";
 
 $from_email = "noreply@mathisnestladieshostel.in";
