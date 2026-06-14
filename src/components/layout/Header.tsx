@@ -3,12 +3,14 @@ import { Menu, X, Phone } from 'lucide-react'
 import { SITE, NAV_LINKS } from '../../data/site'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
 import Logo from '../../assets/logo.svg'
+import { EnquiryForm } from '../sections/EnquiryForm'
 
 const SECTION_IDS = NAV_LINKS.map((link) => link.href.replace('#', ''))
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false) // Added Modal State
   const activeSection = useScrollSpy(SECTION_IDS)
 
   useEffect(() => {
@@ -18,11 +20,12 @@ export function Header() {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    // Keep body hidden if either mobile menu OR enquiry modal is open
+    document.body.style.overflow = menuOpen || isEnquiryOpen ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
-  }, [menuOpen])
+  }, [menuOpen, isEnquiryOpen])
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -30,8 +33,8 @@ export function Header() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${scrolled
-            ? 'border-b border-border/50 bg-surface/85 py-3 shadow-sm backdrop-blur-xl'
-            : 'border-b border-transparent bg-transparent py-5'
+          ? 'border-b border-border/50 bg-surface/85 py-3 shadow-sm backdrop-blur-xl'
+          : 'border-b border-transparent bg-transparent py-5'
           }`}
         role="banner"
       >
@@ -43,13 +46,7 @@ export function Header() {
             className="group flex items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             aria-label={`${SITE.shortName} - Home`}
           >
-            {/* <span
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-dark text-lg font-bold text-white shadow-md transition-transform duration-300 group-hover:scale-105"
-              aria-hidden="true"
-            >
-              M
-            </span> */}
-            <img src={Logo} alt={`${SITE.shortName} logo`} width={30}/> 
+            <img src={Logo} alt={`${SITE.shortName} logo`} width={30} />
             <div className="leading-tight">
               <span className="block font-display text-lg font-bold tracking-wide text-text transition-colors group-hover:text-primary">
                 {SITE.shortName}
@@ -98,12 +95,14 @@ export function Header() {
               </span>
               <span className="hidden xl:inline tracking-wide">{SITE.phone}</span>
             </a>
-            <a
-              href="#contact"
+
+            {/* Replaced link with Button to trigger Modal */}
+            <button
+              onClick={() => setIsEnquiryOpen(true)}
               className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-2.5 text-sm font-semibold tracking-wide text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-lg active:scale-95"
             >
               Book a Room
-            </a>
+            </button>
           </div>
 
           {/* Mobile Hamburger Toggle */}
@@ -126,19 +125,16 @@ export function Header() {
           }`}
         aria-hidden={!menuOpen}
       >
-        {/* Backdrop */}
         <div
           className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300"
           onClick={closeMenu}
           aria-hidden="true"
         />
 
-        {/* Sliding Panel */}
         <div
           className={`absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col bg-surface shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
         >
-          {/* Drawer Header (Contains Close Button) */}
           <div className="flex h-[88px] items-center justify-between border-b border-border/50 px-6 pt-2">
             <span className="font-display text-lg font-bold tracking-wide text-text">
               Menu
@@ -153,7 +149,6 @@ export function Header() {
             </button>
           </div>
 
-          {/* Drawer Links */}
           <nav className="flex-1 overflow-y-auto px-4 py-6">
             <ul className="space-y-2">
               {NAV_LINKS.map((link) => {
@@ -165,8 +160,8 @@ export function Header() {
                       href={link.href}
                       onClick={closeMenu}
                       className={`block rounded-2xl px-5 py-4 text-base font-medium tracking-wide transition-all ${isActive
-                          ? 'bg-primary/5 text-primary'
-                          : 'text-text hover:bg-background hover:text-primary'
+                        ? 'bg-primary/5 text-primary'
+                        : 'text-text hover:bg-background hover:text-primary'
                         }`}
                     >
                       {link.label}
@@ -177,7 +172,6 @@ export function Header() {
             </ul>
           </nav>
 
-          {/* Drawer Footer */}
           <div className="space-y-4 border-t border-border/50 bg-background/50 p-6">
             <a
               href={SITE.phoneHref}
@@ -186,16 +180,23 @@ export function Header() {
               <Phone className="h-4 w-4" aria-hidden="true" strokeWidth={1.5} />
               {SITE.phone}
             </a>
-            <a
-              href="#contact"
-              onClick={closeMenu}
+
+            {/* Replaced link with Button in Mobile Drawer */}
+            <button
+              onClick={() => {
+                setIsEnquiryOpen(true)
+                closeMenu()
+              }}
               className="block w-full rounded-full bg-primary px-4 py-3.5 text-center text-sm font-semibold tracking-wide text-white shadow-md transition-transform active:scale-[0.98]"
             >
               Book a Room
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Render the Enquiry Form Modal */}
+      <EnquiryForm isOpen={isEnquiryOpen} onClose={() => setIsEnquiryOpen(false)} />
     </>
   )
 }
