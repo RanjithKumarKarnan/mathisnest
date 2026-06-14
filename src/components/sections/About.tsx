@@ -1,5 +1,8 @@
 import { ABOUT_CONTENT } from '../../data/content'
 import { ShieldCheck } from 'lucide-react'
+import Profile1 from '../../assets/profile-1.png'
+import Profile2 from '../../assets/profile-2.png'
+import Profile3 from '../../assets/profile-3.png'
 
 export function About() {
   return (
@@ -84,10 +87,9 @@ export function About() {
             <div className="mt-12 flex items-center gap-6 border-t border-border/50 pt-8">
               <div className="flex -space-x-3">
                 {/* Dummy avatars for visual social proof */}
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="h-10 w-10 rounded-full border-2 border-background bg-surface-muted shadow-sm overflow-hidden">
-                    <img src={`/images/demo.png`} alt="" className="h-full w-full object-cover" />
-                    {/* <img src={`/images/dummy-avatar-${i}.jpg`} alt="" className="h-full w-full object-cover opacity-50 grayscale" /> */}
+                {[Profile1, Profile2, Profile3].map((src, idx) => (
+                  <div key={idx} className="h-10 w-10 rounded-full border-2 border-background bg-surface-muted shadow-sm overflow-hidden">
+                    <img src={src} alt={`Profile ${idx + 1}`} className="h-full w-full object-cover" />
                   </div>
                 ))}
               </div>
