@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { MapPin, Phone, Mail, ArrowUp, MessageCircle } from 'lucide-react'
 import { SITE, NAV_LINKS } from '../../data/site'
 import { FACILITIES } from '../../data/content'
+import Logo from '../../assets/logo.svg'
+
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -41,12 +43,7 @@ export function Footer() {
             {/* Brand Column (Spans 4 columns on desktop) */}
             <div className="lg:col-span-4 lg:pr-8">
               <div className="flex items-center gap-4">
-                <span
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-dark text-xl font-bold text-white shadow-lg"
-                  aria-hidden="true"
-                >
-                  M
-                </span>
+              <img src={Logo} alt={`${SITE.shortName} logo`} width={30}/> 
                 <div>
                   <p className="font-display text-2xl font-bold tracking-tight">{SITE.shortName}</p>
                   <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">Ladies Hostel Trichy</p>

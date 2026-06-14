@@ -16,8 +16,8 @@ export const SITE = {
   shortName: "Mathi's Nest",
   tagline: 'Safe & Comfortable Ladies Hostel in Trichy',
   url: 'https://www.mathisnestladieshostel.in',
-  phone: '+91 74013 10001',
-  phoneHref: 'tel:+917401310001',
+  phone: '+91 70107 02589',
+  phoneHref: 'tel:+917010702589',
   email: 'yourinfo@mathisnest.com',
   emailHref: 'mailto:yourinfo@mathisnest.com',
   address: {
@@ -41,7 +41,7 @@ export const SITE = {
   social: {
     facebook: 'https://facebook.com/mathisnestladieshostel',
     instagram: 'https://instagram.com/mathisnestladieshostel',
-    whatsapp: 'https://wa.me/917401310001',
+    whatsapp: 'https://wa.me/7010702589',
   },
   copyright: "© 2026 Mathi's Nest Ladies Hostel Trichy. All Rights Reserved.",
 } as const
