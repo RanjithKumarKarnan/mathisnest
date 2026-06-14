@@ -3,6 +3,9 @@ import { Hero } from '../components/sections/Hero'
 import { TrustIndicators } from '../components/sections/TrustIndicators'
 import { About } from '../components/sections/About'
 
+const NearbyLocations = lazy(() =>
+  import('../components/sections/NearbyLocations').then((m) => ({ default: m.NearbyLocations }))
+)
 const WhyChooseUs = lazy(() =>
   import('../components/sections/WhyChooseUs').then((m) => ({ default: m.WhyChooseUs }))
 )
@@ -36,6 +39,7 @@ export function Home() {
       <TrustIndicators />
       <About />
       <Suspense fallback={<SectionFallback />}>
+        <NearbyLocations />
         <WhyChooseUs />
         <Facilities />
         <RoomFeatures />
