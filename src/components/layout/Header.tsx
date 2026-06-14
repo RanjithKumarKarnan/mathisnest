@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Phone } from 'lucide-react'
 import { SITE, NAV_LINKS } from '../../data/site'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
+import Logo from '../../assets/logo.svg'
 
 const SECTION_IDS = NAV_LINKS.map((link) => link.href.replace('#', ''))
 
@@ -42,12 +43,13 @@ export function Header() {
             className="group flex items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             aria-label={`${SITE.shortName} - Home`}
           >
-            <span
+            {/* <span
               className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-dark text-lg font-bold text-white shadow-md transition-transform duration-300 group-hover:scale-105"
               aria-hidden="true"
             >
               M
-            </span>
+            </span> */}
+            <img src={Logo} alt={`${SITE.shortName} logo`} width={30}/> 
             <div className="leading-tight">
               <span className="block font-display text-lg font-bold tracking-wide text-text transition-colors group-hover:text-primary">
                 {SITE.shortName}
