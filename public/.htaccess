@@ -1,31 +1,9 @@
 RewriteEngine On
 RewriteBase /
 
-# ---------------------------------------------------------------------------
-# Canonical domain + HTTPS enforcement
-# Single authoritative host: https://www.mathisnestladieshostel.in
-# - Redirects the secondary domain (mathisnest.com) and any non-www / non-HTTPS
-#   request to the canonical host with a permanent 301.
-# - Consolidates link equity and matches the <link rel="canonical"> tag.
-# ---------------------------------------------------------------------------
-
-# Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://www.mathisnestladieshostel.in%{REQUEST_URI} [L,R=301]
-
-# Redirect the alternate domain (mathisnest.com, with or without www) to canonical
-RewriteCond %{HTTP_HOST} ^(www\.)?mathisnest\.com$ [NC]
-RewriteRule ^ https://www.mathisnestladieshostel.in%{REQUEST_URI} [L,R=301]
-
-# Force www on the canonical domain (non-www -> www)
-RewriteCond %{HTTP_HOST} ^mathisnestladieshostel\.in$ [NC]
-RewriteRule ^ https://www.mathisnestladieshostel.in%{REQUEST_URI} [L,R=301]
-
-# ---------------------------------------------------------------------------
-# SPA fallback (serve index.html for client-side routes)
-# ---------------------------------------------------------------------------
 RewriteRule ^index\.html$ - [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
 RewriteRule . /index.html [L]
