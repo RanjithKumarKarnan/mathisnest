@@ -89,7 +89,6 @@ $headers .= "Content-type: text/html; charset=UTF-8\r\n";
 $headers .= "From: Mathi's Nest Website <$from_email>\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
-// Send the email
 if (mail($to, $subject, $body, $headers)) {
     echo json_encode(["status" => "success", "message" => "Message sent successfully!"]);
 } else {
