@@ -26,7 +26,7 @@ export const SITE = {
     state: 'Tamil Nadu',
     country: 'India',
     postalCode: '620020',
-    full: "Mathi's Nest Ladies Hostel, Race Course Road, Lourdh Swamy Colony, Khaja Nagar, Tiruchirappalli, Tamil Nadu 620020",
+    full: "Mathi's Nest Ladies Hostel, Race Course Road, Lourdh Swamy Colony, Khaja Nagar, Tiruchirappalli, Tamil Nadu 620021",
   },
   geo: {
     latitude: 10.7905,

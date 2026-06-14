@@ -89,9 +89,6 @@ export function Facilities() {
                   <p className="font-display text-[13px] italic leading-relaxed text-text/80">
                     &ldquo;{facility.quote}&rdquo;
                   </p>
-                  <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-primary/80">
-                    &mdash; {facility.quoteSource}
-                  </span>
                 </div>
               </div>
             )
