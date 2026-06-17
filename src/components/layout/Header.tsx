@@ -46,7 +46,7 @@ export function Header() {
             className="group flex items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             aria-label={`${SITE.shortName} - Home`}
           >
-            <img src={Logo} alt={`${SITE.shortName} logo`} width={30} />
+            <img src={Logo} alt={`${SITE.shortName} logo`} width={50} className='rounded-full' />
             <div className="leading-tight">
               <span className="block font-display text-lg font-bold tracking-wide text-text transition-colors group-hover:text-primary">
                 {SITE.shortName}

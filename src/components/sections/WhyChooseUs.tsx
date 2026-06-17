@@ -4,10 +4,15 @@ export function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="relative overflow-hidden bg-surface py-24 md:py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-background via-primary/5 to-surface py-24 md:py-32"
       aria-labelledby="why-choose-heading"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Subtle Background Glow for added depth */}
+      <div className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/3" aria-hidden="true">
+        <div className="h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Custom Luxury Header */}
         <div className="mx-auto mb-16 max-w-2xl text-center md:mb-24">
@@ -21,7 +26,7 @@ export function WhyChooseUs() {
 
           <h3
             id="why-choose-heading"
-            className="mb-6 text-4xl font-bold leading-[1.1] tracking-tight text-text md:text-5xl lg:text-6xl"
+            className="mb-6 font-display text-4xl font-bold leading-[1.1] tracking-tight text-text md:text-5xl lg:text-6xl"
           >
             Built Around Your Safety & Comfort
           </h3>
@@ -58,7 +63,7 @@ export function WhyChooseUs() {
                     <card.icon className="h-7 w-7" strokeWidth={1.2} />
                   </div>
 
-                  <h4 className="mb-4 italic text-xl font-bold tracking-tight text-text sm:text-2xl">
+                  <h4 className="mb-4 font-display italic text-xl font-bold tracking-tight text-text sm:text-2xl">
                     {card.title}
                   </h4>
 

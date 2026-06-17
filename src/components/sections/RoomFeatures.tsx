@@ -1,16 +1,16 @@
-import { useState } from 'react' // Added Import
+import { useState } from 'react'
 import { Check } from 'lucide-react'
 import { ROOM_TYPES } from '../../data/content'
-import { EnquiryForm } from './EnquiryForm' // Added Import
+import { EnquiryForm } from './EnquiryForm'
 
 export function RoomFeatures() {
-  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false) // Added Modal State
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false)
 
   return (
     <>
       <section
         id="rooms"
-        className="relative overflow-hidden bg-background py-24 md:py-32"
+        className="relative overflow-hidden py-24 md:py-32"
         aria-labelledby="rooms-heading"
       >
         {/* Subtle Background Glow */}
@@ -69,6 +69,16 @@ export function RoomFeatures() {
                   <p className="mt-4 text-sm leading-relaxed text-text-muted sm:text-base">
                     {room.subtitle}
                   </p>
+
+                  {/* Added Premium Tariff Display */}
+                  <div className="mt-6 flex items-baseline gap-2">
+                    <span className="font-display text-4xl font-bold tracking-tight text-primary">
+                      {room.title.toLowerCase().includes('double') ? '₹6,500' : '₹5,250'}
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-text-muted">
+                      / month
+                    </span>
+                  </div>
                 </div>
 
                 <hr className="mb-8 border-border/50 md:mb-10" aria-hidden="true" />

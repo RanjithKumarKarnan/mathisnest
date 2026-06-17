@@ -63,11 +63,6 @@ export function LocalSEO() {
                   >
                     {paragraph}
                   </p>
-
-                  {/* Delicate Minimalist Divider between paragraphs */}
-                  {index !== LOCAL_SEO_CONTENT.paragraphs.length - 1 && (
-                    <div className="mt-8 h-px w-12 bg-border/80 transition-all duration-300 group-hover:w-24 group-hover:bg-primary/40" aria-hidden="true" />
-                  )}
                 </div>
               ))}
 

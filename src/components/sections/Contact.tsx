@@ -14,14 +14,14 @@ export function Contact() {
       aria-labelledby="contact-heading"
       className="relative overflow-hidden bg-background py-24 md:py-32"
     >
-      {/* Subtle Background Glow */}
+      {/* Subtle Background Glow for light background */}
       <div className="pointer-events-none absolute right-0 top-0 -translate-y-1/2 translate-x-1/3">
         <div className="h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" aria-hidden="true" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
-        {/* Custom Luxury Header */}
+        {/* Custom Luxury Header (Restored for Light BG) */}
         <div className="mx-auto mb-16 max-w-2xl text-center md:mb-24">
           <div className="mb-6 flex items-center justify-center gap-4">
             <span className="h-px w-8 bg-primary/60" aria-hidden="true" />

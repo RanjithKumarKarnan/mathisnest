@@ -4,7 +4,7 @@ export function Facilities() {
   return (
     <section
       id="facilities"
-      className="relative overflow-hidden bg-background py-24 md:py-32"
+      className="relative overflow-hidden bg-white py-24 md:py-32"
       aria-labelledby="facilities-heading"
     >
       {/* Custom Keyframes for the Infinite Marquee */}
@@ -21,7 +21,7 @@ export function Facilities() {
       `}</style>
 
       {/* Subtle Top Gradient Line */}
-      <div className="absolute left-1/2 top-0 h-px w-full max-w-4xl -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/40 to-transparent" aria-hidden="true" />
+      <div className="absolute left-1/2 top-0 h-px w-full max-w-4xl -translate-x-1/2" aria-hidden="true" />
 
       {/* Header Container (Constrained Width) */}
       <div className="mx-auto mb-16 max-w-7xl px-6 lg:px-8 md:mb-24">

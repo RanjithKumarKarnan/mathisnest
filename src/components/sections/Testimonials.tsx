@@ -8,10 +8,11 @@ function StarRating({ rating }: { rating: number }) {
       {[...Array(5)].map((_, i) => (
         <Star
           key={i}
-          className={`h-3.5 w-3.5 transition-colors duration-500 ${i < rating
+          className={`h-3.5 w-3.5 transition-colors duration-500 ${
+            i < rating
               ? 'fill-primary text-primary'
               : 'fill-transparent text-primary/30'
-            }`}
+          }`}
           strokeWidth={1.5}
         />
       ))}
@@ -39,7 +40,12 @@ export function Testimonials() {
         }
       `}</style>
 
-      <div className="mx-auto mb-16 max-w-7xl px-6 lg:px-8 md:mb-24">
+      {/* Subtle Background Glow to tie the section together */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="h-[600px] w-[800px] rounded-full bg-primary/5 blur-[120px]" aria-hidden="true" />
+      </div>
+
+      <div className="relative mx-auto mb-16 max-w-7xl px-6 lg:px-8 md:mb-24">
         {/* Custom Luxury Header */}
         <div className="mx-auto max-w-2xl text-center">
           <div className="mb-6 flex items-center justify-center gap-4">
@@ -81,11 +87,11 @@ export function Testimonials() {
               <div
                 key={`${testimonial.name}-${index}`}
                 aria-hidden={isDuplicate}
-                className="group relative flex w-[320px] shrink-0 flex-col overflow-hidden rounded-[32px] border border-border/40 bg-background p-8 transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 sm:w-[400px] sm:p-10"
+                className="group relative flex w-[320px] shrink-0 flex-col overflow-hidden rounded-[2.5rem] border border-primary/20 bg-primary/[0.03] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:bg-primary/[0.06] hover:shadow-2xl hover:shadow-primary/10 sm:w-[400px] sm:p-10"
               >
-                {/* Decorative Watermark Icon */}
+                {/* Decorative Watermark Icon (Tinted Primary) */}
                 <Quote
-                  className="absolute -right-4 -top-4 h-32 w-32 text-primary/5 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110"
+                  className="absolute -right-4 -top-4 h-32 w-32 text-primary/[0.07] transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110 group-hover:text-primary/[0.12]"
                   aria-hidden="true"
                 />
 
@@ -103,9 +109,9 @@ export function Testimonials() {
                   </blockquote>
 
                   {/* Author Info */}
-                  <footer className="mt-auto flex items-center gap-4 border-t border-border/50 pt-6 transition-colors duration-500 group-hover:border-primary/20">
+                  <footer className="mt-auto flex items-center gap-4 border-t border-primary/10 pt-6 transition-colors duration-500 group-hover:border-primary/20">
                     <div
-                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-primary/5 text-lg font-bold text-primary ring-1 ring-primary/20 transition-transform duration-500 group-hover:scale-110"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary/30 to-primary/10 text-lg font-bold text-primary ring-1 ring-primary/20 transition-transform duration-500 group-hover:scale-110"
                       aria-hidden="true"
                     >
                       {testimonial.name.charAt(0)}
@@ -114,7 +120,7 @@ export function Testimonials() {
                       <p className="truncate font-display text-base font-bold tracking-tight text-text">
                         {testimonial.name}
                       </p>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-muted">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/80">
                         {testimonial.role}
                       </p>
                     </div>
