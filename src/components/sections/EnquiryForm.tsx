@@ -17,7 +17,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
 
-    // Track individual field errors and a general server error
     const [errors, setErrors] = useState<{
         name?: string;
         phone?: string;
@@ -25,7 +24,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
         general?: string;
     }>({})
 
-    // Lock body scroll when modal is open and reset states
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden'
@@ -38,7 +36,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
         }
     }, [isOpen])
 
-    // Handle Escape key to close
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') handleClose(e)
@@ -47,7 +44,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
         return () => window.removeEventListener('keydown', handleKeyDown)
     }, [onClose])
 
-    // Robust Close Handler
     const handleClose = (e?: React.SyntheticEvent | KeyboardEvent) => {
         if (e) {
             e.preventDefault()
@@ -56,7 +52,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
         onClose()
     }
 
-    // Clear specific field error when user starts typing
     const handleInputChange = (field: string, value: string) => {
         setFormData(prev => ({ ...prev, [field]: value }))
         if (errors[field as keyof typeof errors]) {
@@ -69,7 +64,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
 
         const newErrors: typeof errors = {}
 
-        // 1. Custom JS Frontend Validation
         if (formData.name.trim().length < 2) {
             newErrors.name = 'Please enter your full name.'
         }
@@ -83,7 +77,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
             newErrors.roomType = 'Please select a room preference.'
         }
 
-        // If there are validation errors, update UI and stop submission
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors)
             return
@@ -92,9 +85,7 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
         setIsSubmitting(true)
         setErrors({})
 
-        // 2. Submit to PHP Backend
         try {
-            // Note: Update this URL to the exact location of your PHP file on your live server
             const response = await fetch('/send_email.php', {
                 method: 'POST',
                 headers: {
@@ -113,10 +104,8 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
             if (result.status === 'success') {
                 setIsSubmitted(true)
 
-                // Auto-close after showing success state
                 setTimeout(() => {
                     handleClose()
-                    // Reset form after closing animation finishes
                     setTimeout(() => {
                         setIsSubmitted(false)
                         setFormData({ name: '', phone: '', roomType: '', message: '' })
@@ -133,6 +122,16 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
         }
     }
 
+    const handleFormKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+        if (e.key === 'Enter') {
+            if ((e.target as HTMLElement).tagName.toLowerCase() === 'textarea') {
+                return;
+            }
+            e.preventDefault();
+            handleSubmit(e as unknown as React.FormEvent);
+        }
+    }
+
     return (
         <div
             className={`fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-500 sm:p-6 ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'
@@ -141,7 +140,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
             role="dialog"
             aria-modal="true"
         >
-            {/* Dark Overlay with Blur */}
             <div
                 className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'
                     }`}
@@ -149,16 +147,13 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                 aria-hidden="true"
             />
 
-            {/* Modal Container */}
             <div
-                className={`relative w-full max-w-lg overflow-hidden rounded-[2.5rem] bg-surface shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] ring-1 ring-border/50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-12 scale-95 opacity-0'
+                className={`relative w-full max-w-lg overflow-hidden rounded-2xl bg-surface shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] ring-1 ring-border/50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-12 scale-95 opacity-0'
                     }`}
                 onClick={(e) => e.stopPropagation()} // Prevent clicking inside the modal from closing it
             >
-                {/* Subtle Ambient Glow */}
                 <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 h-48 w-full bg-primary/20 blur-[60px]" aria-hidden="true" />
 
-                {/* Fixed Close Button */}
                 <button
                     type="button"
                     onClick={handleClose}
@@ -169,7 +164,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                 </button>
 
                 <div className="relative z-10 p-8 sm:p-10">
-                    {/* Header */}
                     <div className="mb-8 pr-8">
                         <h2 className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-primary">
                             Enquire Now
@@ -183,7 +177,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                     </div>
 
                     {isSubmitted ? (
-                        /* Success State */
                         <div className="flex flex-col items-center justify-center py-12 text-center animate-in fade-in zoom-in duration-500">
                             <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-500/10 text-green-500 ring-1 ring-green-500/20">
                                 <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
@@ -194,10 +187,8 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                             <p className="mt-2 text-sm text-text-muted">Your enquiry has been received. We will call you soon.</p>
                         </div>
                     ) : (
-                        /* Form Fields */
-                        <form onSubmit={handleSubmit} className="space-y-5 animate-in fade-in duration-500" noValidate>
+                        <form onSubmit={handleSubmit} onKeyDown={handleFormKeyDown} className="space-y-5 animate-in fade-in duration-500" noValidate>
 
-                            {/* Name Input */}
                             <div>
                                 <div className="relative">
                                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
@@ -206,7 +197,7 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                     <input
                                         type="text"
                                         placeholder="Full Name"
-                                        className={`w-full rounded-2xl border py-3.5 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-1 transition-all duration-300 ${errors.name
+                                        className={`w-full rounded-xl border py-3.5 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-1 transition-all duration-300 ${errors.name
                                                 ? 'border-red-500 bg-red-500/5 focus:border-red-500 focus:ring-red-500'
                                                 : 'border-border/50 bg-background/50 focus:border-primary focus:bg-background focus:ring-primary'
                                             }`}
@@ -219,7 +210,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                 )}
                             </div>
 
-                            {/* Phone Input */}
                             <div>
                                 <div className="relative">
                                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
@@ -228,7 +218,7 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                     <input
                                         type="tel"
                                         placeholder="10-Digit Phone Number"
-                                        className={`w-full rounded-2xl border py-3.5 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-1 transition-all duration-300 ${errors.phone
+                                        className={`w-full rounded-xl border py-3.5 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-1 transition-all duration-300 ${errors.phone
                                                 ? 'border-red-500 bg-red-500/5 focus:border-red-500 focus:ring-red-500'
                                                 : 'border-border/50 bg-background/50 focus:border-primary focus:bg-background focus:ring-primary'
                                             }`}
@@ -241,14 +231,13 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                 )}
                             </div>
 
-                            {/* Room Preference Select */}
                             <div>
                                 <div className="relative">
                                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
                                         <Home className={`h-4 w-4 transition-colors duration-300 ${errors.roomType ? 'text-red-500' : 'text-text-muted'}`} strokeWidth={1.5} />
                                     </div>
                                     <select
-                                        className={`w-full appearance-none rounded-2xl border py-3.5 pl-11 pr-4 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-1 ${errors.roomType
+                                        className={`w-full appearance-none rounded-xl border py-3.5 pl-11 pr-4 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-1 ${errors.roomType
                                                 ? 'border-red-500 bg-red-500/5 text-text focus:border-red-500 focus:ring-red-500'
                                                 : `border-border/50 focus:border-primary focus:bg-background focus:ring-primary ${formData.roomType ? 'text-text bg-background/50' : 'text-text-muted/60 bg-background/50'}`
                                             }`}
@@ -266,7 +255,6 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                 )}
                             </div>
 
-                            {/* Message Input (Optional, no validation required) */}
                             <div className="relative">
                                 <div className="pointer-events-none absolute left-0 top-3.5 flex items-center pl-4">
                                     <MessageSquare className="h-4 w-4 text-text-muted" strokeWidth={1.5} />
@@ -274,13 +262,12 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                 <textarea
                                     placeholder="Any questions or expected move-in date?"
                                     rows={3}
-                                    className="w-full resize-none rounded-2xl border border-border/50 bg-background/50 py-3.5 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary transition-colors duration-300"
+                                    className="w-full resize-none rounded-xl border border-border/50 bg-background/50 py-3.5 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary transition-colors duration-300"
                                     value={formData.message}
                                     onChange={(e) => handleInputChange('message', e.target.value)}
                                 />
                             </div>
 
-                            {/* General Server Error Message Display */}
                             {errors.general && (
                                 <div className="flex items-start gap-2 rounded-xl bg-red-500/10 p-3 text-red-500 ring-1 ring-red-500/20 animate-in fade-in">
                                     <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
@@ -288,12 +275,11 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                 </div>
                             )}
 
-                            {/* Submit Button */}
                             <div className="pt-2">
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-primary px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-md transition-all duration-300 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-70"
+                                    className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-primary px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-md transition-all duration-300 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-70"
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
                                         {isSubmitting ? 'Sending Request...' : 'Submit Enquiry'}
