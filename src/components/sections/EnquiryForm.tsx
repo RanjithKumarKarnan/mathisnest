@@ -27,7 +27,7 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden'
-            setErrors({}) // Clear errors when opened
+            setErrors({})
         } else {
             document.body.style.overflow = ''
         }
@@ -148,23 +148,23 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
             />
 
             <div
-                className={`relative w-full max-w-lg overflow-hidden rounded-2xl bg-surface shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] ring-1 ring-border/50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-12 scale-95 opacity-0'
+                className={`relative flex w-full max-w-lg flex-col overflow-hidden rounded-2xl bg-surface shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] ring-1 ring-border/50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] max-h-[95vh] sm:max-h-[90vh] ${isOpen ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-12 scale-95 opacity-0'
                     }`}
-                onClick={(e) => e.stopPropagation()} // Prevent clicking inside the modal from closing it
+                onClick={(e) => e.stopPropagation()}
             >
                 <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 h-48 w-full bg-primary/20 blur-[60px]" aria-hidden="true" />
 
                 <button
                     type="button"
                     onClick={handleClose}
-                    className="absolute right-6 top-6 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-text ring-1 ring-border/50 backdrop-blur-sm transition-all duration-300 hover:bg-primary/10 hover:text-primary active:scale-95"
+                    className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-text ring-1 ring-border/50 backdrop-blur-sm transition-all duration-300 hover:bg-primary/10 hover:text-primary active:scale-95 sm:right-6 sm:top-6"
                     aria-label="Close form"
                 >
                     <X className="h-5 w-5" strokeWidth={1.5} />
                 </button>
 
-                <div className="relative z-10 p-8 sm:p-10">
-                    <div className="mb-8 pr-8">
+                <div className="relative z-10 overflow-y-auto p-6 sm:p-8 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-border/60 hover:[&::-webkit-scrollbar-thumb]:bg-border">
+                    <div className="mb-6 pr-8">
                         <h2 className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] text-primary">
                             Enquire Now
                         </h2>
@@ -187,7 +187,7 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                             <p className="mt-2 text-sm text-text-muted">Your enquiry has been received. We will call you soon.</p>
                         </div>
                     ) : (
-                        <form onSubmit={handleSubmit} onKeyDown={handleFormKeyDown} className="space-y-5 animate-in fade-in duration-500" noValidate>
+                        <form onSubmit={handleSubmit} onKeyDown={handleFormKeyDown} className="space-y-4 animate-in fade-in duration-500" noValidate>
 
                             <div>
                                 <div className="relative">
@@ -197,9 +197,9 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                     <input
                                         type="text"
                                         placeholder="Full Name"
-                                        className={`w-full rounded-xl border py-3.5 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-1 transition-all duration-300 ${errors.name
-                                                ? 'border-red-500 bg-red-500/5 focus:border-red-500 focus:ring-red-500'
-                                                : 'border-border/50 bg-background/50 focus:border-primary focus:bg-background focus:ring-primary'
+                                        className={`w-full rounded-xl border py-3 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-1 transition-all duration-300 ${errors.name
+                                            ? 'border-red-500 bg-red-500/5 focus:border-red-500 focus:ring-red-500'
+                                            : 'border-border/50 bg-background/50 focus:border-primary focus:bg-background focus:ring-primary'
                                             }`}
                                         value={formData.name}
                                         onChange={(e) => handleInputChange('name', e.target.value)}
@@ -218,9 +218,9 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                     <input
                                         type="tel"
                                         placeholder="10-Digit Phone Number"
-                                        className={`w-full rounded-xl border py-3.5 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-1 transition-all duration-300 ${errors.phone
-                                                ? 'border-red-500 bg-red-500/5 focus:border-red-500 focus:ring-red-500'
-                                                : 'border-border/50 bg-background/50 focus:border-primary focus:bg-background focus:ring-primary'
+                                        className={`w-full rounded-xl border py-3 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:outline-none focus:ring-1 transition-all duration-300 ${errors.phone
+                                            ? 'border-red-500 bg-red-500/5 focus:border-red-500 focus:ring-red-500'
+                                            : 'border-border/50 bg-background/50 focus:border-primary focus:bg-background focus:ring-primary'
                                             }`}
                                         value={formData.phone}
                                         onChange={(e) => handleInputChange('phone', e.target.value.replace(/[^0-9\s-]/g, ''))}
@@ -237,9 +237,9 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                         <Home className={`h-4 w-4 transition-colors duration-300 ${errors.roomType ? 'text-red-500' : 'text-text-muted'}`} strokeWidth={1.5} />
                                     </div>
                                     <select
-                                        className={`w-full appearance-none rounded-xl border py-3.5 pl-11 pr-4 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-1 ${errors.roomType
-                                                ? 'border-red-500 bg-red-500/5 text-text focus:border-red-500 focus:ring-red-500'
-                                                : `border-border/50 focus:border-primary focus:bg-background focus:ring-primary ${formData.roomType ? 'text-text bg-background/50' : 'text-text-muted/60 bg-background/50'}`
+                                        className={`w-full appearance-none rounded-xl border py-3 pl-11 pr-4 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-1 ${errors.roomType
+                                            ? 'border-red-500 bg-red-500/5 text-text focus:border-red-500 focus:ring-red-500'
+                                            : `border-border/50 focus:border-primary focus:bg-background focus:ring-primary ${formData.roomType ? 'text-text bg-background/50' : 'text-text-muted/60 bg-background/50'}`
                                             }`}
                                         value={formData.roomType}
                                         onChange={(e) => handleInputChange('roomType', e.target.value)}
@@ -256,13 +256,13 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                             </div>
 
                             <div className="relative">
-                                <div className="pointer-events-none absolute left-0 top-3.5 flex items-center pl-4">
+                                <div className="pointer-events-none absolute left-0 top-3 flex items-center pl-4">
                                     <MessageSquare className="h-4 w-4 text-text-muted" strokeWidth={1.5} />
                                 </div>
                                 <textarea
                                     placeholder="Any questions or expected move-in date?"
-                                    rows={3}
-                                    className="w-full resize-none rounded-xl border border-border/50 bg-background/50 py-3.5 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary transition-colors duration-300"
+                                    rows={2}
+                                    className="w-full resize-none rounded-xl border border-border/50 bg-background/50 py-3 pl-11 pr-4 text-sm font-medium text-text placeholder:text-text-muted/60 focus:border-primary focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary transition-colors duration-300"
                                     value={formData.message}
                                     onChange={(e) => handleInputChange('message', e.target.value)}
                                 />
@@ -279,7 +279,7 @@ export function EnquiryForm({ isOpen, onClose }: EnquiryFormProps) {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-primary px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-md transition-all duration-300 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-70"
+                                    className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-primary px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-md transition-all duration-300 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-70"
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
                                         {isSubmitting ? 'Sending Request...' : 'Submit Enquiry'}

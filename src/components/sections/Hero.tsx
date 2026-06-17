@@ -79,7 +79,7 @@ export function Hero() {
                     {/* Replaced CTA Link with Button to Trigger Modal */}
                     <button
                       onClick={() => setIsEnquiryOpen(true)}
-                      className="group flex h-11 items-center gap-2.5 bg-primary px-5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white transition-all duration-300 hover:bg-primary-dark sm:h-13 sm:px-8"
+                      className="group flex h-11 items-center gap-2.5 rounded-full bg-primary px-5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white transition-all duration-300 hover:bg-primary-dark sm:h-13 sm:px-8"
                     >
                       Book a Room
                       <ArrowRight
@@ -90,7 +90,7 @@ export function Hero() {
 
                     <a
                       href={SITE.phoneHref}
-                      className="flex h-11 items-center gap-2 border border-white/25 px-5 text-[10px] font-medium uppercase tracking-[0.22em] text-white transition-all duration-300 hover:bg-white hover:text-black sm:h-13 sm:px-8"
+                      className="flex h-11 items-center gap-2 border rounded-full border-white/25 px-5 text-[10px] font-medium uppercase tracking-[0.22em] text-white transition-all duration-300 hover:bg-white hover:text-black sm:h-13 sm:px-8"
                     >
                       <Phone size={14} />
                       Call Now
