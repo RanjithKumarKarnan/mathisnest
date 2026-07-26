@@ -24,8 +24,8 @@ export function About() {
 
             <div className="relative z-10 overflow-hidden shadow-2xl rounded-t-[120px] rounded-b-xl border border-border/50 bg-surface">
               <img
-                src="/images/about.jpg" // Dummy path as requested
-                alt="Elegant interiors of Mathi's Nest ladies hostel"
+                src="/images/bed.jpeg"
+                alt="Comfortable bed room at Mathi's Nest ladies hostel"
                 width={600}
                 height={800}
                 loading="lazy"
