@@ -92,7 +92,7 @@ export function RoomFeatures() {
                   onClick={() => setIsEnquiryOpen(true)}
                   className={`mt-10 inline-flex w-full items-center justify-center rounded-full px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 active:scale-[0.98] md:mt-12 ${room.popular
                       ? 'bg-primary text-white shadow-md hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20'
-                      : 'bg-transparent text-text ring-1 ring-inset ring-border/80 hover:bg-primary hover:text-white hover:ring-primary'
+                      : 'bg-primary text-white shadow-md hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20'
                     }`}
                 >
                   Reserve This Room
