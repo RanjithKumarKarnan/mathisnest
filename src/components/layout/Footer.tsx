@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { MapPin, Phone, Mail, ArrowUp, MessageCircle } from 'lucide-react'
 import { SITE, NAV_LINKS } from '../../data/site'
 import { FACILITIES } from '../../data/content'
-import Logo from '../../assets/logo.svg'
+
+const Logo = '/favicon.svg'
 
 
 export function Footer() {

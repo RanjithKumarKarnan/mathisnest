@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Phone } from 'lucide-react'
 import { SITE, NAV_LINKS } from '../../data/site'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
-import Logo from '../../assets/logo.svg'
 import { EnquiryForm } from '../sections/EnquiryForm'
+
+const Logo = '/favicon.svg'
 
 const SECTION_IDS = NAV_LINKS.map((link) => link.href.replace('#', ''))
 

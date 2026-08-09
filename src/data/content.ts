@@ -169,6 +169,7 @@ export const FACILITIES: FacilityItem[] = [
 export interface RoomType {
   title: string
   subtitle: string
+  price: number
   popular?: boolean
   features: string[]
 }
@@ -187,12 +188,14 @@ export const ROOM_TYPES: RoomType[] = [
   {
     title: 'Double Sharing',
     subtitle: 'The perfect balance of privacy and companionship',
+    price: 6500,
     popular: true,
     features: SHARED_ROOM_FEATURES,
   },
   {
     title: 'Four Sharing',
     subtitle: 'Budget-friendly living with a friendly community',
+    price: 5250,
     features: SHARED_ROOM_FEATURES,
   },
 ]
@@ -357,9 +360,9 @@ export const FAQ_ITEMS: FAQItem[] = [
 ]
 
 export const LOCAL_SEO_CONTENT = {
-  title: "Your Trusted Ladies Hostel in Trichy — Mathi's Nest",
+  title: "Your Trusted Ladies Hostel in Trichy Mathi's Nest",
   paragraphs: [
-    "Searching for a ladies hostel near me or a hostel near me in Trichy? Mathi's Nest Ladies Hostel is strategically located on Race Course Road in Lourdh Swamy Colony, Khaja Nagar, Tiruchirappalli — one of the most well-connected areas in the city. Whether you are a college student, a working professional, or a nurse seeking reliable women accommodation in Trichy, our hostel offers the safety, comfort, and convenience you deserve.",
+    "Searching for a ladies hostel near me or a hostel near me in Trichy? Mathi's Nest Ladies Hostel is strategically located on Race Course Road in Lourdh Swamy Colony, Khaja Nagar, Tiruchirappalli. One of the most well-connected areas in the city. Whether you are a college student, a working professional, or a nurse seeking reliable women accommodation in Trichy, our hostel offers the safety, comfort, and convenience you deserve.",
     "As a leading girls hostel in Trichy, we cater to the diverse needs of modern women. Our ladies hostel Trichy facility is purpose-built for female residents, ensuring a secure, respectful, and supportive environment. From popular double sharing rooms to budget-friendly four sharing options, Mathi's Nest is the working women's hostel that balances quality living with affordable pricing.",
     "Rated 4.5★ by 39+ residents and families, we are consistently ranked among the best ladies hostel in Trichy options available today. With CCTV security, homely meals, free WiFi, laundry service, and attentive management, we have earned our reputation as a safe girls hostel in Trichy. Visit Mathi's Nest today and discover why so many women choose us when they search for a ladies hostel in Trichy or a girls PG near me.",
   ],
@@ -374,34 +377,34 @@ export const NEARBY_LOCATIONS: NearbyCategory[] = [
   {
     category: 'Educational',
     places: [
-      { name: 'Race IAS Academy', distance: '500 m' },
-      { name: 'EVR College', distance: '900 m' },
-      { name: 'Law College', distance: '950 m' },
-      { name: 'Jamal Mohamed College', distance: '2.5 km' },
-      { name: 'Bharathidasan University', distance: '5 km' },
+      { name: 'Race IAS Academy', distance: '1.1 kms' },
+      { name: 'Bharathidasan University', distance: '800 Metres' },
+      { name: 'EVR College', distance: '900 Metres' },
+      { name: 'Law College', distance: '950 Metres' },
+      { name: 'Jamal Mohamed College', distance: '2.5 kms' },
     ],
   },
   {
     category: 'Healthcare',
     places: [
-      { name: 'Om Harish Hospital', distance: '25 m' },
-      { name: 'Government Hospital Trichy', distance: '2 km' },
-      { name: 'Kauvery Hospital', distance: '4 km' },
+      { name: 'Om Harish Hospital', distance: '100 Metres' },
+      { name: 'Government Hospital Trichy', distance: '6.9 kms' },
+      { name: 'Kauvery Hospital', distance: '4 kms' },
     ],
   },
   {
     category: 'Tourist & Cultural',
     places: [
-      { name: 'Rockfort Temple', distance: '5 km' },
-      { name: 'Sri Rangam Temple', distance: '6 km' },
+      { name: 'Sri Rangam Temple', distance: '12.1 kms' },
+      { name: 'Rockfort Temple', distance: '8.2 kms' },
     ],
   },
   {
     category: 'Transport',
     places: [
-      { name: 'Main Bus Stand', distance: '2.5 km' },
-      { name: 'Trichy Railway Station', distance: '3.5 km' },
-      { name: 'Tiruchirappalli International Airport', distance: '9 km' },
+      { name: 'Tiruchirappalli International Airport', distance: '4.3 kms' },
+      { name: 'Trichy Railway Station', distance: '3.5 kms' },
+      { name: 'Panjappur Bus Stand', distance: '6.8 kms' },
     ],
   },
 ]

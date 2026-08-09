@@ -69,6 +69,12 @@ export function RoomFeatures() {
                   <p className="mt-4 text-sm leading-relaxed text-text-muted sm:text-base">
                     {room.subtitle}
                   </p>
+                  <p className="mt-6 flex items-baseline gap-1">
+                    <span className="font-display text-3xl font-bold tracking-tight text-primary md:text-4xl">
+                      ₹{room.price.toLocaleString('en-IN')}
+                    </span>
+                    <span className="text-sm font-medium text-text-muted">/month</span>
+                  </p>
                 </div>
 
                 <hr className="mb-8 border-border/50 md:mb-10" aria-hidden="true" />

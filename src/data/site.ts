@@ -57,12 +57,12 @@ export const NAV_LINKS = [
 
 export const HERO_SLIDES = [
   {
-    image: "/images/hero/1.png",
+    image: "/images/hero/1.jpeg",
     title: "A Safe, Comfortable Home for Women",
     subtitle: "Mathi's Nest offers well-maintained rooms, 24/7 CCTV security, and a peaceful environment.",
   },
   {
-    image: "/images/hero/2.png",
+    image: "/images/hero/5.jpeg",
     title: "Homely Food & Custom Menu",
     subtitle: "Nutritious, delicious, and hygienic meals prepared with care to make you feel at home.",
   },
@@ -72,7 +72,7 @@ export const HERO_SLIDES = [
     subtitle: "Custom AC/Non-AC rooms, high-speed WiFi, geysers, and affordable tariffs.",
   },
   {
-    image: "/images/hero/4.png",
+    image: "/images/hero/room.jpeg",
     title: "Vibrant Community Life",
     subtitle: "Enjoy open mic nights, TV, hostel days, and traditional festival celebrations.",
   },
